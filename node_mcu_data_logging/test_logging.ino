@@ -77,12 +77,12 @@ void loop() {
   // function definition further below.
   MQTT_connect();
   Serial.println("enter latitude");
-  
+
 while(!Serial.available());
-  int lat = Serial.read()-'0';
+  int lat = itoa(Serial.read()-'0');
   while(!Serial.available());
   Serial.println("enter longitude");
-  int longit = (int)(Serial.read()-'48');
+  int longit = itoa(Serial.read()-'0');
 
   // Sending data to the feeds
   Serial.print(F("\nSending lat "));
