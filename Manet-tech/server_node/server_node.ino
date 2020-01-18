@@ -25,14 +25,6 @@ void setup() {
     delay(500);
   }
   server.begin();                         // starts the server
-/*  Serial.println("Connected to wifi");
-  Serial.print("Status: "); Serial.println(WiFi.status());  // some parameters from the network
-  Serial.print("IP: ");     Serial.println(WiFi.localIP());
-  Serial.print("Subnet: "); Serial.println(WiFi.subnetMask());
-  Serial.print("Gateway: "); Serial.println(WiFi.gatewayIP());
-  Serial.print("SSID: "); Serial.println(WiFi.SSID());
-  Serial.print("Signal: "); Serial.println(WiFi.RSSI());
-  Serial.print("Networks: "); Serial.println(WiFi.scanNetworks());*/
   pinMode(ledPin, OUTPUT);
 }
 
