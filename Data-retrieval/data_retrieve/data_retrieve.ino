@@ -7,8 +7,8 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define R_SSID       "not for you"
-#define PASS       "devesh12345"
+#define R_SSID       "Haha"
+#define PASS       "tilda12344"
 
 /************************* Adafruit.io Setup *********************************/
 
@@ -43,6 +43,9 @@ Adafruit_MQTT_Subscribe Longit = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/f
 // Bug workaround for Arduino 1.6.6, it seems to need a function declaration
 // for some reason (only affects ESP8266, likely an arduino-builder bug).
 //void MQTT_connect();
+// Function to connect and reconnect as necessary to the MQTT server.
+// Should be called in the loop function and it will take care if connecting.
+
 
 void setup() {
   Serial.begin(115200);
@@ -72,13 +75,14 @@ void setup() {
 
     mqtt.subscribe(&Lati);
     mqtt.subscribe(&Longit);
-
-  }
-
-
   if(! mqtt.ping()) {
     mqtt.disconnect();
   }
+
+
+  }
+
+
 
 void loop() {
   // Ensure the connection to the MQTT server is alive (this will make the first
@@ -96,14 +100,17 @@ void loop() {
 //   // Sending data to the feeds
 //   Serial.print(F("\nSending lat "));
 //   Serial.print("...");
-
+Serial.println((char *)Lati.lastread);
+Serial.println();
+Serial.println((char *)Longit.lastread);
+Serial.println();
 Adafruit_MQTT_Subscribe *subscription;
   while ((subscription = mqtt.readSubscription(5000)))
   {
     if (subscription == &Lati)
     {
       Serial.print(F("Got latitude : "));
-      Serial.println((char *)Lat.lastread);
+      Serial.println((char *)Lati.lastread);
     }
 
     if(subscription == &Longit)
@@ -140,8 +147,6 @@ Adafruit_MQTT_Subscribe *subscription;
   //delay(30000);
 }
 
-// Function to connect and reconnect as necessary to the MQTT server.
-// Should be called in the loop function and it will take care if connecting.
 void MQTT_connect() {
   int8_t ret;
 
