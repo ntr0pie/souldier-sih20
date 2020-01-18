@@ -31,18 +31,21 @@ Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO
 
 // Setup a feed called 'lat' for subscribing.
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname>
-Adafruit_MQTT_Subscribe Latitude = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/lat");
-Adafruit_MQTT_Subscribe Lati = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME Latitude);
+Adafruit_MQTT_Subscribe Lati = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/lat");
+//Adafruit_MQTT_Subscribe Lati = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME Latitude);
 
 // Setup a feed called 'longi' for subscribing.
-Adafruit_MQTT_Subscribe Longitude = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/longi");
-Adafruit_MQTT_Subscribe Longit = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME Longitude);
+Adafruit_MQTT_Subscribe Longit = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/longi");
+//Adafruit_MQTT_Subscribe Longit = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME Longitude);
 
 /*************************** Sketch Code ************************************/
 
 // Bug workaround for Arduino 1.6.6, it seems to need a function declaration
 // for some reason (only affects ESP8266, likely an arduino-builder bug).
 //void MQTT_connect();
+// Function to connect and reconnect as necessary to the MQTT server.
+// Should be called in the loop function and it will take care if connecting.
+
 
 void setup() {
   Serial.begin(115200);
@@ -69,10 +72,12 @@ void setup() {
 
   Serial.println("WiFi connected");
   Serial.println("IP address: "); Serial.println(WiFi.localIP());
+
+    mqtt.subscribe(&Lati);
+    mqtt.subscribe(&Longit);
+
   }
 
-  mqtt.subscribe(&Lati);
-  mqtt.subscribe(&Longit);
 
   if(! mqtt.ping()) {
     mqtt.disconnect();
@@ -101,7 +106,7 @@ Adafruit_MQTT_Subscribe *subscription;
     if (subscription == &Lati)
     {
       Serial.print(F("Got latitude : "));
-      Serial.println((char *)Lat.lastread);
+      Serial.println((char *)Lati.lastread);
     }
 
     if(subscription == &Longit)
@@ -138,8 +143,6 @@ Adafruit_MQTT_Subscribe *subscription;
   //delay(30000);
 }
 
-// Function to connect and reconnect as necessary to the MQTT server.
-// Should be called in the loop function and it will take care if connecting.
 void MQTT_connect() {
   int8_t ret;
 
