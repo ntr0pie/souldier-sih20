@@ -3,7 +3,7 @@
 1. https://circuitdigest.com/microcontroller-projects/how-to-track-location-with-nodemcu-using-google-map-api
 2. https://www.instructables.com/id/Location-Tracker-With-NodeMCU-ESP8266/
 3. https://github.com/manrueda/
-4. GOOGLE API KEY: AIzaSyAZO3OeBdLatNa4u9N_s_20SW78gkFTzeQ
+4. GOOGLE API KEY: AIzaSyAlDVXGnusbQNqiulHUd5iLSOr8zUqtwEg
 ## Manet-Tech
 1. 
 ## Heart rate logging
