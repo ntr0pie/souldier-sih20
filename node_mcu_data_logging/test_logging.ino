@@ -65,7 +65,7 @@ void setup() {
   }
   Serial.println();
 
-  Serial.println("WiFi connected")aio_SPNe63vEVsogmtnAhvYiWG8eAJNf;
+  Serial.println("WiFi connected");
   Serial.println("IP address: "); Serial.println(WiFi.localIP());
   }
 
