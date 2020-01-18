@@ -2,7 +2,7 @@
  *  Asks some network parameters
  *  Starts WiFi server with fix IP and listens
  *  Receives and sends messages to the client
- *  Communicates: wifi_client_01.ino
+ *  Communicates: client_node.ino
  */
 #include <SPI.h>
 #include <ESP8266WiFi.h>
