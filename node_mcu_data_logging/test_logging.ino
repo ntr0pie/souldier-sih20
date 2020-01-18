@@ -7,15 +7,15 @@
 
 /************************* WiFi Access Point *********************************/
 
-#define R_SSID       "...your SSID.."
-#define PASS       "...your password..."
+#define R_SSID       "not for you"
+#define PASS       "devesh12345"
 
 /************************* Adafruit.io Setup *********************************/
 
 #define AIO_SERVER      "io.adafruit.com"
 #define AIO_SERVERPORT  1883                   // use 8883 for SSL
-#define AIO_USERNAME    "...your AIO username (see https://accounts.adafruit.com)..."
-#define AIO_KEY         "...your AIO key..."
+#define AIO_USERNAME    "ritwik25"
+#define AIO_KEY         "aio_SPNe63vEVsogmtnAhvYiWG8eAJNf"
 
 /************ Global State (you don't need to change this!) ******************/
 
@@ -65,7 +65,7 @@ void setup() {
   }
   Serial.println();
 
-  Serial.println("WiFi connected");
+  Serial.println("WiFi connected")aio_SPNe63vEVsogmtnAhvYiWG8eAJNf;
   Serial.println("IP address: "); Serial.println(WiFi.localIP());
   }
 
