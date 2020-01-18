@@ -9,5 +9,5 @@ https://github.com/manrueda/ESP8266HttpClient
 1. https://forum.xda-developers.com/general/accessories/xiaomi-mi-band-data-extraction-t3019156
 ## EEG data logging 
 1. 
-## Misc
-1. 
+## Haven't tried
+1. https://askubuntu.com/questions/156620/how-to-verify-the-ssl-fingerprint-by-command-line-wget-curl
