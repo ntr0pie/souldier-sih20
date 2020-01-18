@@ -45,7 +45,7 @@ Adafruit_MQTT_Publish Longitude = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "/fe
 void setup() {
   Serial.begin(115200);
   delay(10);
-  dht.setup(4); // data pin 4
+  //dht.setup(4); // data pin 4
 
   // Connect to WiFi access point.
   Serial.println(); Serial.println();
@@ -76,9 +76,13 @@ void loop() {
   // connection and automatically reconnect when disconnected).  See the MQTT_connect
   // function definition further below.
   MQTT_connect();
-
-  int lat = Serial.read();
-  int longit = Serial.read();
+  Serial.println("enter latitude");
+  
+while(!Serial.available());
+  int lat = Serial.read()-'0';
+  while(!Serial.available());
+  Serial.println("enter longitude");
+  int longit = (int)(Serial.read()-'48');
 
   // Sending data to the feeds
   Serial.print(F("\nSending lat "));
