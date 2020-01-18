@@ -74,6 +74,10 @@ void setup() {
   mqtt.subscribe(&Lati);
   mqtt.subscribe(&Longit);
 
+  if(! mqtt.ping()) {
+    mqtt.disconnect();
+  }
+
 void loop() {
   // Ensure the connection to the MQTT server is alive (this will make the first
   // connection and automatically reconnect when disconnected).  See the MQTT_connect
@@ -157,23 +161,6 @@ void MQTT_connect() {void MQTT_connect() {
          // reset me
         ESP.reset();
        }
-  }
-  Serial.println("MQTT Connected!");
-}
-  int8_t ret;
-
-  // Stop if already connected.
-  if (mqtt.connected()) {
-    return;
-  }
-
-  Serial.print("Connecting to MQTT... ");
-
-  while ((ret = mqtt.connect()) != 0) { // connect will return 0 for connected
-       Serial.println(mqtt.connectErrorString(ret));
-       Serial.println("Retrying MQTT connection in 5 seconds...");
-       mqtt.disconnect();
-       delay(5000);  // wait 5 seconds
   }
   Serial.println("MQTT Connected!");
 }
