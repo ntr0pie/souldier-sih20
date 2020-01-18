@@ -1,7 +1,7 @@
 /*  Connects to the home WiFi network
  *  Asks some network parameters
  *  Sends and receives message from the server in every 2 seconds
- *  Communicates: wifi_server_01.ino
+ *  Communicates: server_node.ino
  */ 
 #include <SPI.h>
 #include <ESP8266WiFi.h>
