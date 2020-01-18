@@ -12,3 +12,5 @@
 1. 
 ## Haven't tried
 1. https://askubuntu.com/questions/156620/how-to-verify-the-ssl-fingerprint-by-command-line-wget-curl
+## Tutorial for NodeMCU Communication 
+https://www.instructables.com/id/WiFi-Communication-Between-Two-ESP8266-Based-MCU-T/
