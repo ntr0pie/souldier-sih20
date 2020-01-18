@@ -8,12 +8,12 @@
 #include <ESP8266WiFi.h>
 
 byte ledPin = 2;
-char ssid[] = "**********";               // SSID of your home WiFi
-char pass[] = "**********";               // password of your home WiFi
+char ssid[] = "Haha";               // SSID of your home WiFi
+char pass[] = "tilda12344";               // password of your home WiFi
 WiFiServer server(80);                    
 
-IPAddress ip(192, 168, 0, 80);            // IP address of the server
-IPAddress gateway(192,168,0,1);           // gateway of your network
+IPAddress ip(192,168,43,107);            // IP address of the server
+IPAddress gateway(192,168,43,172);           // gateway of your network
 IPAddress subnet(255,255,255,0);          // subnet mask of your network
 
 void setup() {
@@ -42,10 +42,12 @@ void loop () {
     if (client.connected()) {
       digitalWrite(ledPin, LOW);  // to show the communication only (inverted logic)
       Serial.println(".");
+      
       String request = client.readStringUntil('\r');    // receives the message from the client
       Serial.print("From client: "); Serial.println(request);
       client.flush();
-      client.println("Hi client! No, I am listening.\r"); // sends the answer to the client
+     
+      client.println(Serial.read()-'0'); // sends the answer to the client
       digitalWrite(ledPin, HIGH);
     }
     client.stop();                // tarminates the connection with the client
