@@ -37,7 +37,7 @@ void loop () {
   digitalWrite(ledPin, LOW);    // to show the communication only (inverted logic)
   Serial.println(".");
   
-  client.println(Serial.read()-'0');  // sends the message to the server
+  //client.println(Serial.read()-'0');  // sends the message to the server
   
   String answer = client.readStringUntil('\r');   // receives the answer from the sever
   Serial.println("from server: " + answer);
