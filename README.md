@@ -11,5 +11,8 @@
 ## NodeMCU Communication 
 1. https://www.instructables.com/id/WiFi-Communication-Between-Two-ESP8266-Based-MCU-T/
 
+## UT Dallas Research Paper
+1. https://jamanetwork.com/journals/jamapsychiatry/fullarticle/1389369
+
 
 
